@@ -42,14 +42,16 @@
 
   //creating a class for the characters above
 
+
   class Character {
-    constructor(name, health, strength, inventory) {
+    constructor(name, health, strength) {
       this.name = name;
       this.health = health;
       this.strength = strength;
       this.xp = 0; // XP is always zero for new characters
     }
 
+      
 
     // Attack a target
   attack(target) {
@@ -82,11 +84,16 @@
     }
   }
 
+/**NEW INVENTORY */
+
+
   //using the class above, use it to create objects/characters
 
 const frodo = new Character("Frodo", 150, 25);
 const aragorn = new Character("Aragorn", 130, 30);
 const dragon = new Character("Smaug",40,20)
+
+frodo.inventory = (10,1)
 
 //let game begin
 console.log("Welcome to the adventure! Here are our heroes:");
@@ -102,31 +109,32 @@ aragorn.attack(dragon);
 
 console.log(frodo.describe());
 console.log(aragorn.describe());
-
-
-console.log(frodo.describe());
-console.log(aragorn.describe());
 console.log(dragon.describe());
 
 
+
+
+
+/*****DOG CLASS */
 //dog class
-class Dog {
-    constructor(name,breed,size){
-        this.name = name
-        this.breed = breed
-        this.size = size
-    }
+// class Dog {
+//     constructor(name,breed,size){
+//         this.name = name
+//         this.breed = breed
+//         this.size = size
+//     }
 
-    bark(){
-       return "WOOOOOOF"
-    }
-}
+//     bark(){
+//        return "WOOOOOOF"
+//     }
+// }
 
-const sushi = new Dog("Sushi","Morkie",24)
+// const sushi = new Dog("Sushi","Morkie",24)
 
-console.log(`${sushi.name} is a ${sushi.breed} dog measuring ${sushi.size}`);
-console.log(`Look, a cat! ${sushi.name} barks: ${sushi.bark()}`);
+// console.log(`${sushi.name} is a ${sushi.breed} dog measuring ${sushi.size}`);
+// console.log(`Look, a cat! ${sushi.name} barks: ${sushi.bark()}`);
 
-const snowy = new Dog("Snowy","Terrier",30)
-console.log(`${snowy.name} is a ${snowy.species} dog measuring ${snowy.size}`);
-console.log(`Look, a cat! ${snowy.name} barks: ${snowy.bark()}`);
+// const snowy = new Dog("Snowy","Terrier",30)
+// console.log(`${snowy.name} is a ${snowy.species} dog measuring ${snowy.size}`);
+// console.log(`Look, a cat! ${snowy.name} barks: ${snowy.bark()}`);
+
