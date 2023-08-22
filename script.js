@@ -41,8 +41,6 @@
 
 
   //creating a class for the characters above
-
-
   class Character {
     constructor(name, health, strength) {
       this.name = name;
@@ -84,16 +82,16 @@
     }
   }
 
-/**NEW INVENTORY */
 
 
   //using the class above, use it to create objects/characters
 
-const frodo = new Character("Frodo", 150, 25);
+const frodo = new Character("Frodo", 150, 25, 10,10);
 const aragorn = new Character("Aragorn", 130, 30);
 const dragon = new Character("Smaug",40,20)
 
-frodo.inventory = (10,1)
+
+
 
 //let game begin
 console.log("Welcome to the adventure! Here are our heroes:");
@@ -132,9 +130,96 @@ console.log(dragon.describe());
 // const sushi = new Dog("Sushi","Morkie",24)
 
 // console.log(`${sushi.name} is a ${sushi.breed} dog measuring ${sushi.size}`);
-// console.log(`Look, a cat! ${sushi.name} barks: ${sushi.bark()}`);
+// console.log(`Look, a Gato! ${sushi.name} barks: ${sushi.bark()}`);
 
 // const snowy = new Dog("Snowy","Terrier",30)
 // console.log(`${snowy.name} is a ${snowy.species} dog measuring ${snowy.size}`);
-// console.log(`Look, a cat! ${snowy.name} barks: ${snowy.bark()}`);
+// console.log(`Look, a Gato! ${snowy.name} barks: ${snowy.bark()}`);
 
+//objects using literal notation
+
+// const person = {
+//   name:["Bob","Smith"],
+//   age: 32,
+//   bio: function(){
+//     console.log(`${this.name[0]} ${this.name[1]} is ${this.age} years old`);
+//   },
+//   introduceSelf: function(){
+//     console.log(`Hi I'm ${this.name[0]}`);
+    
+//   }
+
+
+// }
+
+function Person(name) {
+  this.name = name
+  this.introduceSelf = function () {
+    console.log(`Hi I am ${this.name}`);
+    
+  }
+}
+
+//objects using a constructor
+const eric = new Person("Eric");
+eric.name
+eric.introduceSelf()
+
+
+//Test your skills: Objects basics
+//https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Test_your_skills:_Object_basics
+
+//In our next task, we want you to have a go at creating your own object literal to represent one of your favorite bands.
+
+
+const band = {
+    name: "Ramona",
+    nationality: "Mexico",
+    genre: "Indie Rock",
+    members:4,
+    formed:2015,
+    split: false,
+    albums: [
+      {name:"La segunda Luz del Dia",
+      released:2015
+      },
+      {
+        name:"Ceres",
+        released:2017
+      }
+    ]
+}
+
+let bandInfo = `This ${band.genre} band ${band.name} from ${band.nationality} formed in  ${band.formed} released their first albumn titled ${band.albums[0].name} in ${band.albums[0].released}`
+
+console.log(bandInfo);
+
+///more object practice
+
+
+const Cat = {
+  name : 'Bertie',
+  breed : 'Cymric',
+  color : 'white',
+  greeting: function() {
+  console.log(`Hello, said ${Cat.name} the ${Cat.breed}.`);
+  }
+}
+
+Cat.greeting()
+
+///above code using constructor
+
+function Gato(name,breed,color) {
+  this.name = name
+  this.breed = breed
+  this.color = color
+  this.greeting = function(){
+    console.log(`Hello, said ${this.name} the ${this.color} ${this.breed}.`)
+  }
+}
+
+let pantera = new Gato('Pantera','Panther','Black')
+let cheetara = new Gato('Chetahra',"Cheetah",'Orange')
+pantera.greeting()
+cheetara.greeting()
