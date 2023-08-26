@@ -152,18 +152,18 @@ console.log(dragon.describe());
 
 // }
 
-function Person(name) {
-  this.name = name
-  this.introduceSelf = function () {
-    console.log(`Hi I am ${this.name}`);
+// function Person(name) {
+//   this.name = name
+//   this.introduceSelf = function () {
+//     console.log(`Hi I am ${this.name}`);
     
-  }
-}
+//   }
+// }
 
 //objects using a constructor
-const eric = new Person("Eric");
-eric.name
-eric.introduceSelf()
+// const eric = new Person("Eric");
+// eric.name
+// eric.introduceSelf()
 
 
 //Test your skills: Objects basics
@@ -223,3 +223,57 @@ let pantera = new Gato('Pantera','Panther','Black')
 let cheetara = new Gato('Chetahra',"Cheetah",'Orange')
 pantera.greeting()
 cheetara.greeting()
+
+
+//understanding classes
+//to avoid redundancy create a new Person class
+//this Person class will then share some properties
+//to the Professor class and the Student class
+
+class Person{
+  constructor(name){
+    this.name = name
+  }
+  
+}
+
+class Professor extends Person{//class declaration has extend keyword
+  teaches//declare new properties here **optional
+  constructor (name,teaches){//constructor instantiates an object with the following properties
+    super(name); //call superclass constructor using super() along with the correct parameter previously declared in the parent super class above
+    this.teaches = teaches
+  }
+  
+  gradePaper() {//method
+    console.log("You get an A");
+  }
+  introduction(){//method
+    console.log(`My name is professor ${this.name} and I teach ${this.teaches}`);
+  }
+}
+//creates two objects using the new keyword
+let walsh = new Professor("Walsh", "CS101");
+let lillian = new Professor("Lillian", "Poetry")
+
+walsh.introduction()
+lillian.introduction()
+
+
+class Student extends Person{
+  #year //new property declaration**optional
+  constructor(name,year){
+    super(name)
+    this.#year = year //the # makes year private
+  }
+  introduction(){
+    console.log(`Hello my name is ${this.name} and I am in ${this.#year}`);
+  }
+  canStudyArchery() {
+   return this.#year > 1
+  }
+}
+
+let gael = new Student("Gael",1)
+gael.introduction()
+console.log(gael.year);
+gael.canStudyArchery()
