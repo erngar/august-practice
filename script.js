@@ -269,11 +269,58 @@ class Student extends Person{
     console.log(`Hello my name is ${this.name} and I am in ${this.#year}`);
   }
   canStudyArchery() {
-   return this.#year > 1
+    return this.#year>1;
   }
 }
 
 let gael = new Student("Gael",1)
 gael.introduction()
-console.log(gael.year);
-gael.canStudyArchery()
+console.log(gael.year);//will return undefined
+gael.canStudyArchery()//should return true
+
+//***TEST YOUR SKILLS */
+// In this task we provide you with the start of a definition for a Shape class. It has three properties: name, sides, and sideLength. This class only models shapes for which all sides are the same length, like a square or an equilateral triangle.
+// Add a constructor to this class. The constructor takes arguments for the name, sides, and sideLength properties, and initializes them.
+// Add a new method calcPerimeter() method to the class, which calculates its perimeter (the length of the shape's outer edge) and logs the result to the console.
+// Create a new instance of the Shape class called square. Give it a name of square, 4 sides, and a sideLength of 5.
+// Call your calcPerimeter() method on the instance, to see whether it logs the calculation result to the browser's console as expected.
+// Create a new instance of Shape called triangle, with a name of triangle, 3 sides and a sideLength of 3.
+// Call triangle.calcPerimeter() to check that it works OK.
+class Shape {
+  constructor(name,sides,sideLength){
+    this.name = name
+    this.sides = sides
+    this.sideLength = sideLength
+  }
+  calcPerimeter(){
+    const perimeter = (this.sideLength)*(this.sides)
+    console.log(`the perimeter of ${this.name} is ${perimeter}`);
+  }
+
+}
+
+let square = new Shape("Square",4,5)
+square.calcPerimeter()
+
+let triangle = new Shape("Triangle",3,3)
+triangle.calcPerimeter()
+
+//Next creare a Square class that inherits from Shape and adds a calcArea() to calculate area of square. set up constructor so taht name property of Square is automatically set to square and sides to 4. the only property needed when invoking is sideLength 
+
+class Square extends Shape {
+
+  constructor(sideLength){
+      super("square",4,sideLength)//this automatically sets name of square and number of sides to 4
+  } 
+    
+  calcArea(){
+    const area = (this.sideLength**2)
+    console.log(`Area of ${this.name} is ${area}`);
+    
+  }
+}
+
+//create a square instance
+  square = new Square(5)
+ square.calcPerimeter()
+ square.calcArea()
