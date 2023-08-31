@@ -324,3 +324,20 @@ class Square extends Shape {
   square = new Square(5)
  square.calcPerimeter()
  square.calcArea()
+
+ //more practice using protected property names with underscore
+
+ class Player{
+  constructor(name,rank){
+    this._name = name //using underscore along with a getter to help prevent accidental reassignments
+    this.rank = rank
+  }
+  get name(){ //this is a getter
+    return this._name 
+  } 
+    playerBio(){
+      console.log(`${this.name} has a rank of ${this.rank}`);
+      
+    }
+
+}
