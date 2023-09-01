@@ -336,8 +336,23 @@ class Square extends Shape {
     return this._name 
   } 
     playerBio(){
-      console.log(`${this.name} has a rank of ${this.rank}`);
+      console.log(`${this.name} has a rank of ${this.rank} and uses ${this.mainWeapon}`);
       
     }
 
 }
+
+class Weapons extends Player{
+  constructor(mainWeapon){
+    super(_name)
+    super(rank)
+    this.mainWeapon = mainWeapon;
+  }
+  useWeapon(){
+    console.log(`${this.name} strikes with his ${this.weapon}`);
+    
+  }
+}
+
+let playerOne = new Player('Aragorn',10,'Elvish Sword')
+playerOne.playerBio()
